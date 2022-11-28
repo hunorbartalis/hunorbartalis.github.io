@@ -128,7 +128,7 @@ class Lightbox {
 					} catch (e) {
 						url = src;
 					}
-					caption = `<p class="lightbox-caption m-0 p-2 text-center text-white small"><em>${params.get('caption')}</em></p>`;
+					caption = `<p class="lightbox-caption m-0 p-2 text-center text-white small"><p>${params.get('caption')}</p></p>`;
 				}
 				let inner = `<img src="${url}" class="d-block ${imgClasses} img-fluid" style="z-index: 1; object-fit: contain;" />`;
 				let attributes = '';
