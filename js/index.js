@@ -103,7 +103,7 @@
                         } catch (e) {
                             c = t
                         }
-                        r = '<p class="lightbox-caption m-0 p-2 text-center text-white small"><em>'.concat(l.get("caption"), "</em></p>")
+                        r = '<p class="lightbox-caption m-0 p-2 text-center text-white small">'.concat(l.get("caption"), "</p>")
                     }
                     let d = '<img src="'.concat(c, '" class="d-block ').concat(n, ' img-fluid" style="z-index: 1; object-fit: contain;" />'),
                         h = "";
