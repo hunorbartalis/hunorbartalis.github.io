@@ -2,7 +2,14 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Roboto&display=swap");
 @media (min-width: 1400px){
     .container{
-        max-width:1140px !important
+        max-width:1140px !important;   
+        
+        -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+         -moz-animation: fadein 1.5s; /* Firefox < 16 */
+          -ms-animation: fadein 1.5s; /* Internet Explorer */
+           -o-animation: fadein 1.5s; /* Opera < 12.1 */
+              animation: fadein 1.5s;
+        
     }
 }
 .row>*{
@@ -2119,4 +2126,28 @@ ul .t-ltr-light,ul .t-light,ul .t-rtl-dark,ul .t-ltr-dark{
     transform: skew(-2deg);
   }
 }
-/*# sourceMappingURL=style.min.css.map */
+
+/* FadeIn */
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
