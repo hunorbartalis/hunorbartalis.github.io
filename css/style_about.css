@@ -5,11 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
-/* =======================================================
-*
-* 	Template Style
-*
-* ======================================================= */
+
 body {
   font-family: "Space Mono", Arial, serif;
   font-weight: 400;
@@ -233,7 +229,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 40px;
   float: left;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 998px) {
   #fh5co-features .feature-left {
     margin-bottom: 30px;
   }
@@ -544,7 +540,7 @@ h1, h2, h3, h4, h5, h6, figure {
     margin-left: -10px !important;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 998px) {
   .timeline > li > .timeline-badge {
     margin-left: -10px !important;
   }
@@ -600,7 +596,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-top: 5px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 998px) {
   ul.timeline:before {
     left: 90px;
   }
@@ -959,7 +955,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-video {
   overflow: hidden;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 998px) {
   .fh5co-video {
     height: 450px;
   }
@@ -1289,4 +1285,18 @@ input[type="text"] {
   opacity: 0;
 }
 
-/*# sourceMappingURL=style.css.map */
+@media screen and (max-width: 998px) {
+  .timeline .timeline-heading > div h3 {
+    float: left;
+    margin-bottom: 0;
+  }
+  .timeline > li.timeline-unverted {
+  text-align: left;
+  }
+
+  ul.timeline > li > .timeline-panel {
+  width: calc(100% - 150px);
+  width: -moz-calc(100% - 150px);
+  width: -webkit-calc(100% - 150px);
+  }
+}
