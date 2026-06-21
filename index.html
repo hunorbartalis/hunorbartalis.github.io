@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+  Hunor Bartalis-Szélyes — personal academic portfolio
+  Author: Hunor Bartalis-Szélyes
+  Repo: github.com/hunorbartalis
+
+  Third-party resources used on this page, with their licenses:
+    - Font Awesome 6 (icon font)         — CC BY 4.0 (icons) / SIL OFL 1.1 (fonts) / MIT (code)
+                                            https://fontawesome.com/license/free
+    - Google Fonts: Cormorant Garamond,
+      DM Sans, Space Grotesk              — SIL Open Font License 1.1
+                                            https://scripts.sil.org/OFL
+    - jQuery 3.6.0 / jQuery UI 1.13.2     — MIT License
+                                            https://jquery.org/license
+    - Pyramidal neuron reconstructions
+      (l23_pyramidal_neuron.png,
+      l5_pyramidal_neuron.png)            — Data used from NeuroMorpho.Org, licensed under
+                                            CC BY 4.0. Citation required per NeuroMorpho.Org's
+                                            terms of use:
+                                              1. The original paper(s) describing the
+                                                 reconstructions (see the Pubmed link on each
+                                                 reconstruction's detail page on NeuroMorpho.Org)
+                                              2. NeuroMorpho.Org (RRID:SCR_002145)
+                                              3. Tecuatl C, Ljungquist B, Ascoli GA (2024)
+                                                 Accelerating the continuous community sharing
+                                                 of digital neuromorphology data. FASEB Bioadv.
+                                                 6(7):207-221. doi: 10.1096/fba.2024-00048
+                                            https://neuromorpho.org
+
+  No personal or analytics tracking is loaded on this page.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hunor Bartalis-Szélyes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/home/favicon.ico">
+
+  <!-- Font Awesome handles every icon glyph on the page (CC BY 4.0 / SIL OFL 1.1 / MIT, see notice above) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+
+  <!-- Typeface trio: Cormorant Garamond for display headings, DM Sans for body copy, Space Grotesk for UI labels -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- jQuery / jQuery UI are kept around for the presentation viewer toggle and lightbox controls -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+
+  <!-- Hamburger button only shows up once the layout collapses to a single column -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Thin bar across the top that fills up as you scroll down the page -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="site-wrap">
+
+    <!-- Left-hand profile rail: photo, name, degrees, and contact links. Stays fixed on desktop, becomes a slide-out drawer on mobile -->
+    <aside class="sidebar" id="sidebar">
+      <img src="images/home/ErasmusMC_no_bg_new.png"
+           alt="Hunor Bartalis-Szélyes"
+           class="sidebar-avatar">
+
+      <p class="sidebar-name">Hunor<br>Bartalis-Szélyes</p>
+      <p class="sidebar-role">MSc Neuroscience · Erasmus MC<br>BSc Cog. Neuropsychology · TiU</p>
+
+      <div class="sidebar-divider"></div>
+
+      <ul class="contact-list">
+        <li>
+          <a href="https://www.linkedin.com/in/hunor-bartalis-szelyes/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/hunorbartalis" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=BBEitIIAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">
+            <i class="fa-brands fa-google-scholar"></i> Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/neurohunor" target="_blank" rel="noopener">
+            <i class="fa-brands fa-square-x-twitter"></i> Twitter / X
+          </a>
+        </li>
+        <li>
+          <a href="https://orcid.org/0009-0005-8101-6016" target="_blank" rel="noopener">
+            <i class="fa-brands fa-orcid"></i> ORCID
+          </a>
+        </li>
+        <li>
+          <a href="mailto:h.bartalis-szelyes@erasmusmc.nl">
+            <i class="fa-solid fa-envelope"></i> E-mail
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Everything to the right of the sidebar lives in here -->
+    <div class="main">
+
+      <!-- Sticky nav across the top of the main column -->
+      <header class="topbar">
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#publications">Publications</a>
+          <a href="#talks">Talks</a>
+          <a href="#posters">Posters</a>
+        </nav>
+      </header>
+
+      <!-- Landing section — name, one-line pitch, and a short research summary -->
+      <section id="home" class="visible">
+        <!-- Decorative pyramidal neuron reconstructions, courtesy of NeuroMorpho.Org (CC BY 4.0) — see license header above for required citation -->
+        <img src="images/home/l23_pyramidal_neuron.png" alt="" class="neuron neuron-tl" aria-hidden="true">
+        <img src="images/home/l5_pyramidal_neuron.png"  alt="" class="neuron neuron-br" aria-hidden="true">
+        <h1 class="hero-name">HUNOR BARTALIS-SZÉLYES</h1>
+        <p class="hero-kicker">Neuroscience · Machine Learning</p>
+        <h1 class="hero-headline">
+          Restoring neural functions via<br>
+          <em> all-optical neural interfaces.</em>
+        </h1>
+          <p class="hero-body">
+              <span style="font-size: 25px">“</span>My work combines <b>voltage imaging</b>, <b>optogenetics</b>, and <b>machine learning</b> to decode and manipulate <b>neural dynamics</b> through <b>light</b>, paving the way for <b>next-generation brain-computer interfaces</b> and <b>neuroprostheses</b>.<span style="font-size: 25px">”</span>
+          </p>
+        <a href="#publications" class="hero-cta">
+          <i class="fa-solid fa-arrow-down"></i> See my work
+        </a>
+      </section>
+
+      <!-- Peer-reviewed and preprint output -->
+      <section id="publications">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Publications</h2>
+        <div class="items-list">
+
+          <div class="item-card">
+            <div class="item-thumb">
+              <img src="images/publications/Robustness_and_fidelity_of_voltage_imaging_analysis_pipelines_2026.jpg"
+                   alt="Publication cover">
+            </div>
+            <div class="item-body">
+              <p class="item-year">2025 · bioRxiv</p>
+              <h3 class="item-title">
+                <a href="https://www.biorxiv.org/content/10.1101/2025.09.26.678573v1" target="_blank" rel="noopener">
+                  Robustness and fidelity of voltage imaging analysis pipelines
+                </a>
+              </h3>
+              <p class="item-meta">Silva, R., <span class="me">Bartalis‑Szélyes, H.</span>, Brinks, D., &amp; Gao, Z.</p>
+              <p class="item-meta">
+                DOI: <a href="https://doi.org/10.1101/2025.09.26.678573" target="_blank">10.1101/2025.09.26.678573</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Conference and seminar talks, with downloadable slides where I have them -->
+      <section id="talks">
+        <p class="section-label">Presentations</p>
+        <h2 class="section-title">Talks</h2>
+        <div class="items-list">
+
+          <div class="item-card">
+            <div class="item-thumb">
+              <img class="popup"
+                   src="images/talks/A_New_Age_of_Consciousness_Research_Novel_Techniques_For_A_Millenia-Old_Question_2025.jpg"
+                   alt="Talk slide">
+            </div>
+            <div class="item-body">
+              <p class="item-year">2025 · Tilburg University</p>
+              <h3 class="item-title">
+                <a href="#">A New Age of Consciousness Research: Novel Techniques for a Millennia-Old Question</a>
+              </h3>
+              <div class="item-actions">
+                <a href="docs/The_New_Age_of_Studying_Consciousness_and_Perception.pdf"
+                   class="btn-pill btn-solid" download>
+                  <i class="fa-solid fa-download"></i> Download PDF
+                </a>
+                <button onclick="togglePresentation(this, 'pv1')" class="btn-pill btn-outline">
+                  <i class="fa-solid fa-play"></i> View Slides
+                </button>
+              </div>
+              <!-- Hidden by default; main.js flips this open when "View Slides" is clicked -->
+              <div class="presentation-viewer" id="pv1">
+                <iframe src="docs/The_New_Age_of_Studying_Consciousness_and_Perception.pdf"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <div class="item-thumb">
+              <img class="popup"
+                   src="images/talks/The_Visual_And_Auditory_Sytems_Neurarcane_2023.png"
+                   alt="Talk visual">
+            </div>
+            <div class="item-body">
+              <p class="item-year">2023 · Tilburg University</p>
+              <h3 class="item-title">
+                <a href="#">The Visual and Auditory Systems</a>
+              </h3>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Posters presented at conferences, summer schools, and workshops -->
+      <section id="posters">
+        <p class="section-label">Conference Work</p>
+        <h2 class="section-title">Posters</h2>
+        <div class="items-list">
+
+          <div class="item-card">
+            <div class="item-thumb">
+              <img class="popup"
+                   src="images/posters/Noise-Trained_Spiking_Neural_Networks_A_Novel_Approach_Aligned_With_The_Free_Energy_Principle_2023.png"
+                   alt="Poster">
+            </div>
+            <div class="item-body">
+              <p class="item-year">2023 · Advances in NeuroAI Conference</p>
+              <h3 class="item-title">
+                <a href="https://www.neuroaimontreal.com/" target="_blank" rel="noopener">
+                  Noise-Trained Spiking Neural Networks: A Novel Approach Aligned with the Free Energy Principle
+                </a>
+              </h3>
+              <p class="item-meta">Tosato, G.*, <span class="me">Bartalis‑Szélyes, H.</span>*, &amp; van Wingerden, M.</p>
+              <p class="item-meta">Mila Quebec AI Institute, Montreal, Canada</p>
+              <div class="cofirst-note">* Co-first authorship</div>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <div class="item-thumb">
+              <img class="popup"
+                   src="images/posters/What_Are_The_Long-Term_Effects_Of_Photothrombotic_Stroke_In_The_Dorsomedial_Striatum_On_The_Developmental_Trajectory_Of_Visual_Hemineglect_In_Rats_2022.png"
+                   alt="Poster">
+            </div>
+            <div class="item-body">
+              <p class="item-year">2022 · ABC Summer School</p>
+              <h3 class="item-title">
+                <a href="https://abc.uva.nl/about-abc/education/summer-school/summer-school.html" target="_blank" rel="noopener">
+                  Long-Term Effects of Photothrombotic Stroke in the Dorsomedial Striatum on the Developmental Trajectory of Visual Hemineglect in Rats
+                </a>
+              </h3>
+              <p class="item-meta">Banovac, L.*, <span class="me">Bartalis‑Szélyes, H.</span>*, Bruijn, A.M.*, &amp; Mironiuc, C.*</p>
+              <p class="item-meta">University of Amsterdam &amp; SILS, Amsterdam, The Netherlands</p>
+              <div class="cofirst-note">* These authors contributed equally to this work.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2022–2025 Hunor Bartalis-Szélyes</span>
+      </footer>
+
+    </div><!-- /main -->
+  </div><!-- /site-wrap -->
+
+  <!-- Full-screen image viewer for talk/poster thumbnails, with smooth drag-to-pan zoom -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-inner" id="lightboxInner">
+      <img src="" id="lightboxImg" alt="" draggable="false">
+    </div>
+    <div class="lightbox-controls">
+      <button id="lbZoomOut" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+      <span class="lightbox-zoom-level" id="lbZoomLevel">100%</span>
+      <button id="lbZoomIn" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+      <button id="lbReset"><i class="fas fa-undo"></i> Reset</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
