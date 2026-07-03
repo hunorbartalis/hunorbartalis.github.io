@@ -54,7 +54,8 @@
 <body>
 
   <!-- Hamburger button only shows up once the layout collapses to a single column -->
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
+  <button class="hamburger" id="hamburger" aria-label="Open menu"
+          aria-expanded="false" aria-controls="sidebar">
     <span></span><span></span><span></span>
   </button>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -74,6 +75,19 @@
       <p class="sidebar-role">MSc Neuroscience · Erasmus MC<br>BSc Cog. Neuropsychology · TiU</p>
 
       <div class="sidebar-divider"></div>
+
+      <!-- Section navigation for the drawer. Hidden on desktop (the topbar
+           carries these links there); shown once the layout collapses so the
+           whole site can be navigated from a single menu on small screens. -->
+      <nav class="drawer-nav" aria-label="Sections">
+        <a href="#home" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
+        <a href="#talks" class="nav-link"><i class="fa-solid fa-microphone"></i> Talks</a>
+        <a href="#posters" class="nav-link"><i class="fa-solid fa-image"></i> Posters</a>
+        <a href="#awards" class="nav-link"><i class="fa-solid fa-trophy"></i> Awards</a>
+      </nav>
+
+      <div class="sidebar-divider drawer-nav-divider"></div>
 
       <ul class="contact-list">
         <li>
@@ -112,14 +126,19 @@
     <!-- Everything to the right of the sidebar lives in here -->
     <div class="main">
 
-      <!-- Sticky nav across the top of the main column -->
+      <!-- Sticky nav across the top of the main column.
+           On wide screens the section links sit inline on the right.
+           Once the layout collapses (≤860px) these links are hidden and
+           the same destinations appear inside the drawer instead, so the
+           brand (left) + hamburger become the only things in the bar. -->
       <header class="topbar">
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#publications">Publications</a>
-          <a href="#talks">Talks</a>
-          <a href="#posters">Posters</a>
-          <a href="#awards">Awards</a>
+        <a href="#home" class="topbar-brand">Hunor Bartalis-Szélyes</a>
+        <nav class="topbar-nav" aria-label="Sections">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#publications" class="nav-link">Publications</a>
+          <a href="#talks" class="nav-link">Talks</a>
+          <a href="#posters" class="nav-link">Posters</a>
+          <a href="#awards" class="nav-link">Awards</a>
         </nav>
       </header>
 
