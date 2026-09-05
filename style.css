@@ -269,6 +269,15 @@ section.visible { opacity: 1; transform: translateY(0); }
   opacity: .45; pointer-events: none;
 }
 
+.hero-affiliation {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .82rem;
+  font-weight: 300;
+  color: var(--faint);
+  letter-spacing: .04em;
+  margin-top: .35rem;
+}
+
 .hero-name {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(32px, 5.5vw, 52px);
