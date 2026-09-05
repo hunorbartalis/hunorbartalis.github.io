@@ -111,6 +111,15 @@ body {
   letter-spacing: .02em;
 }
 
+/* Previous degrees — same shape as .sidebar-role but a step quieter, so the
+   current affiliations above read as the headline and these as history */
+.sidebar-past {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; color: var(--faint);
+  text-align: center; margin-top: 5px; line-height: 1.6;
+  letter-spacing: .02em;
+}
+
 .sidebar-divider {
   width: 32px; height: 1px;
   background: var(--line);
@@ -271,11 +280,12 @@ section.visible { opacity: 1; transform: translateY(0); }
 
 .hero-affiliation {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: .82rem;
-  font-weight: 300;
+  font-size: 13px; font-weight: 300;
   color: var(--faint);
   letter-spacing: .04em;
-  margin-top: .35rem;
+  margin-bottom: 24px;
+  /* slots into the stagger between the kicker (.3s) and the headline (.4s) */
+  animation: fadeUp .52s .35s both;
 }
 
 .hero-name {
@@ -293,7 +303,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px; letter-spacing: .2em;
   text-transform: uppercase; color: var(--accent);
-  font-weight: 500; margin-bottom: 24px;
+  font-weight: 500; margin-bottom: 8px;
   animation: fadeUp .5s .3s both;
 }
 
@@ -944,6 +954,7 @@ footer a:hover { color: var(--accent); }
   .sidebar { padding: 36px 16px 24px; }
   .sidebar-name { font-size: 15px; }
   .sidebar-role { font-size: 10.5px; }
+  .sidebar-past { font-size: 9.5px; }
   .contact-list a { font-size: 12px; padding: 7px 8px; }
   section { padding: 60px 44px; }
 }
@@ -1010,6 +1021,7 @@ footer a:hover { color: var(--accent); }
   #home { padding: 48px 20px; }
 
   .hero-kicker { font-size: 10px; letter-spacing: .12em; }
+  .hero-affiliation { font-size: 11.5px; line-height: 1.6; margin-bottom: 20px; }
   .hero-headline { font-size: clamp(26px, 9vw, 36px); margin-bottom: 20px; }
   .hero-body { font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
   .hero-cta { padding: 10px 22px; font-size: 13px; }
